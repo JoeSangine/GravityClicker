@@ -1,0 +1,57 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+  background-image: url(/images/starfield.avif);
+  object-fit: cover;
+  font-family: "Orbitron", sans-serif;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: 25rem;
+  margin-left: 5rem;
+}
+#gravity {
+  text-align: center;
+  border: black solid 0.25rem;
+  border-radius: 10rem;
+  border-width: 5rem;
+  background: black;
+  color: white;
+}
+footer {
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
