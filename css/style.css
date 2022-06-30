@@ -50,6 +50,29 @@ main {
 footer {
 }
 
+#asteroid {
+  position: fixed;
+}
+
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+
+/* Style to animate the slow rotation of an image*/
+
+.rotate {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
