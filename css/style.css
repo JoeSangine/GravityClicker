@@ -43,9 +43,7 @@ main {
 }
 #gravity {
   text-align: center;
-  border: black solid 0.25rem;
   border-radius: 10rem;
-  border-width: 5rem;
   background: black;
   color: white;
 }
