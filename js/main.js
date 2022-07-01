@@ -1,11 +1,14 @@
-// create a button that appears after gravity = 100 make that button have a function which gains 1 total in gravity every second repeat process for gravity = 1000 so on and so forth
-//
-
 let mass = 0;
 let blackHoleBorder = 0.1;
 
 document.querySelector("#gainMass").addEventListener("click", gainOne);
 document.querySelector("#asteroid").addEventListener("click", roidClick);
+document.querySelector("#gainMass").addEventListener("click", buttonAppear);
+
+
+
+
+
 
 function gainOne() {
   mass += 1;
@@ -70,3 +73,47 @@ function toggleHidden(element) {
   // Function to hide or unhide whatever element is passed into it's arguments.
   document.querySelector(`${element}`).classList.toggle("hidden");
 }
+
+function buttonAppear(){
+  if (mass >= 10 && mass <= 100) {
+      document.querySelector('#b1').style.visibility = "visible";
+  
+  
+  }
+
+  else if (mass >= 1000 && mass<=10000){
+      document.querySelector('#b2').style.visibility = "visible";
+  }
+  else if (mass >= 10000 && mass<=100000){
+      document.querySelector('#b2').style.visibility = "visible";
+  }
+    else if (mass >= 100000 && mass<=1000000){
+      document.querySelector('#b3').style.visibility = "visible";
+  }
+    else if (mass >= 1000000 && mass<=10000000){
+      document.querySelector('#b4').style.visibility = "visible";
+  }
+    else if (mass >= 10000000 && mass<=100000000){
+      document.querySelector('#b5').style.visibility = "visible";
+  }
+    else if (mass >= 100000000 && mass<=1000000000){
+      document.querySelector('#b6').style.visibility = "visible";
+  }
+    else if (mass >= 1000000000 && mass<=10000000000){
+      document.querySelector('#b7').style.visibility = "visible";
+  }
+    else if (mass >= 10000000000 && mass<=100000000000){
+      document.querySelector('#b8').style.visibility = "visible";
+  }
+    else if (mass >= 100000000000 && mass<=1000000000000){
+      document.querySelector('#b9').style.visibility = "visible";
+  }
+    else if (mass >= 1000000000000 && mass<=10000000000000){
+      document.querySelector('#b10').style.visibility = "visible";
+  }
+    else if (mass >= 10000000000000 && mass<=100000000000000){
+      document.querySelector('#b11').style.visibility = "visible";
+  }
+    else if (mass >= 100000000000000 && mass<=1000000000000000){
+      document.querySelector('#b12').style.visibility = "visible";
+  }
