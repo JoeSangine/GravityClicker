@@ -25,6 +25,7 @@ CSS REDEISIGN:
  - Art for space, blackhole, ui, buttons, the things that will be eaten by the black hole(ie: planets, meteors, space debree, etc)
  - Rather than background image, we more than likely need some sort of game map that generates objects for our blackhole to consume, but in the mean time we can look for some better animations and whatnot.
  - Overall Design
+ - scaling images so when black hole takes up most the screen it zooms out to reveal whats next
 
  ABSORBEES (the things we absorb):
 
