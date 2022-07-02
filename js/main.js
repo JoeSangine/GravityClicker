@@ -116,4 +116,6 @@ function buttonAppear(){
   }
     else if (mass >= 100000000000000 && mass<=1000000000000000){
       document.querySelector('#b12').style.visibility = "visible";
+    }
   }
+  

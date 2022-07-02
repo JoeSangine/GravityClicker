@@ -53,7 +53,13 @@ footer {
 #asteroid {
   position: fixed;
 }
-
+#bList{
+  border: black solid 2px;
+  visibility: hidden;
+}
+#buttonUi {
+  visibility:visable ;
+}
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
