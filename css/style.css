@@ -22,7 +22,8 @@
 /*******************************************/
 
 body {
-  background-image: url(/images/starfield.avif);
+  background-image: url(/images/starfield.avif); 
+/* image does not display on my pc */
   object-fit: cover;
   font-family: "Orbitron", sans-serif;
 }
@@ -46,6 +47,13 @@ main {
   border-radius: 10rem;
   background: black;
   color: white;
+}
+#bList{
+  border: black solid 2px;
+  visibility: hidden;
+}
+#buttonUi {
+  visibility:visable ;
 }
 footer {
 }
