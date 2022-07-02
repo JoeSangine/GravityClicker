@@ -1,15 +1,19 @@
+//global variables
 let mass = 0;
 let blackHoleBorder = 0.1;
+let buttonAmount = 0;
 
+//event listners 
 document.querySelector("#gainMass").addEventListener("click", gainOne);
 document.querySelector("#asteroid").addEventListener("click", roidClick);
 document.querySelector("#gainMass").addEventListener("click", buttonAppear);
+document.querySelector("#b1").addEventListener("click", gainB1);
 
 
 
 
 
-
+//functions
 function gainOne() {
   mass += 1;
   document.querySelector("#gravity").innerHTML = mass;
@@ -21,7 +25,7 @@ function gainOne() {
 
   randomObject();
 }
-
+S
 function roidClick() {
   // first define the current size of the asteroid as a string
   roidHeight = document.querySelector("#asteroid").style.height;
@@ -119,3 +123,14 @@ function buttonAppear(){
     }
   }
   
+  function b1MassGain () {
+    mass+= buttonAmount;
+  }
+    
+  
+  function gainB1() {
+    // function to be able to purchase b1 and have b1 increase mass by its amount
+    buttonAmount += 1;
+    document.querySelector("#b1").innerHTML = buttonAmount;
+    b1MassGain;  
+  }
