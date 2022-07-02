@@ -4,15 +4,15 @@ let blackHoleBorder = 0.1;
 let buttonAmount = 0;
 
 //event listners
+document.querySelector("#blackHole").addEventListener("click", gainMass);
 document.querySelector("#gainMass").addEventListener("click", gainMass);
 document.querySelector("#asteroid").addEventListener("click", roidClick);
-document.querySelector("#gainMass").addEventListener("click", buttonAppear);
 document.querySelector("#b1").addEventListener("click", gainB1);
 
 function gainMass() {
   // This function controls all effects triggered by pushing the gain mass button.
   mass += 1;
-  document.querySelector("#gravity").innerHTML = mass;
+  document.querySelector(".gravity").innerHTML = mass;
   blackHoleBorderIncrease(1);
   randomObject();
   buttonAppear();
@@ -22,7 +22,7 @@ function gainB1() {
   // This function controls all effects triggered by pushing the B1 button.
   buttonAmount += 1;
   mass += buttonAmount;
-  document.querySelector("#gravity").innerHTML = mass;
+  document.querySelector(".gravity").innerHTML = mass;
   document.querySelector("#b1").innerHTML = buttonAmount;
   blackHoleBorderIncrease(1);
   randomObject();
@@ -33,7 +33,7 @@ function blackHoleBorderIncrease(num) {
   // This function increases the black hole border by num /10
   blackHoleBorder += num / 10;
   document.querySelector(
-    "#gravity"
+    ".gravity"
   ).style.border = `${blackHoleBorder}rem solid black`;
 }
 
@@ -47,10 +47,10 @@ function roidClick() {
   // convert the string to a number then add it to mass.
   mass += Number(roidGain);
   //  update black hole size
-  document.querySelector("#gravity").innerHTML = mass;
+  document.querySelector(".gravity").innerHTML = mass;
   blackHoleBorder += 0.1;
   document.querySelector(
-    "#gravity"
+    ".gravity"
   ).style.border = `${blackHoleBorder}rem solid black`;
   // call a random roll for objects as a result of the click
   randomObject();
