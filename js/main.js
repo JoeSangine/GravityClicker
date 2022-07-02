@@ -3,24 +3,40 @@ let mass = 0;
 let blackHoleBorder = 0.1;
 let buttonAmount = 0;
 
-//event listners 
-document.querySelector("#gainMass").addEventListener("click", gainOne);
+//event listners
+document.querySelector("#gainMass").addEventListener("click", gainMass);
 document.querySelector("#asteroid").addEventListener("click", roidClick);
 document.querySelector("#gainMass").addEventListener("click", buttonAppear);
 document.querySelector("#b1").addEventListener("click", gainB1);
 
-function gainOne() {
+function gainMass() {
+  // This function controls all effects triggered by pushing the gain mass button.
   mass += 1;
   document.querySelector("#gravity").innerHTML = mass;
+  blackHoleBorderIncrease(1);
+  randomObject();
+  buttonAppear();
+}
 
-  blackHoleBorder += 0.1;
+function gainB1() {
+  // This function controls all effects triggered by pushing the B1 button.
+  buttonAmount += 1;
+  mass += buttonAmount;
+  document.querySelector("#gravity").innerHTML = mass;
+  document.querySelector("#b1").innerHTML = buttonAmount;
+  blackHoleBorderIncrease(1);
+  randomObject();
+  buttonAppear();
+}
+
+function blackHoleBorderIncrease(num) {
+  // This function increases the black hole border by num /10
+  blackHoleBorder += num / 10;
   document.querySelector(
     "#gravity"
   ).style.border = `${blackHoleBorder}rem solid black`;
-
-  randomObject();
 }
-S
+
 function roidClick() {
   // Function to control the behaviour of the object and blackhole when the asteroid is clicked on.
 
@@ -66,10 +82,12 @@ function spawnAsteroid() {
   // Randomise the size of the asteroid between 50 and 100 pixels.
   let sizeRand = Math.ceil(Math.random() * 50) + 50;
 
-  // remove the "hidden" class from the asteroid and update it's position.
+  // Update the asteroid's position.
   document.querySelector(
     "#asteroid"
   ).style = `height: ${sizeRand}px; margin-top: ${yRand}vh; margin-left: ${xRand}vw`;
+
+  // remove the "hidden" class from the asteroid, or add it back on if you're not paying attention!
   toggleHidden("#asteroid");
 }
 
@@ -79,31 +97,31 @@ function toggleHidden(element) {
 }
 
 function buttonAppear() {
-  if (mass >= 10 && mass <= 100) {
-    document.querySelector("#b1").style.visibility = "visible";
+  if (mass >= 10 && mass <= 1000) {
+    document.querySelector("#b1").classList.remove("hidden");
   } else if (mass >= 1000 && mass <= 10000) {
-    document.querySelector("#b2").style.visibility = "visible";
+    document.querySelector("#b2").classList.remove("hidden");
   } else if (mass >= 10000 && mass <= 100000) {
-    document.querySelector("#b2").style.visibility = "visible";
+    document.querySelector("#b2").classList.remove("hidden");
   } else if (mass >= 100000 && mass <= 1000000) {
-    document.querySelector("#b3").style.visibility = "visible";
+    document.querySelector("#b3").classList.remove("hidden");
   } else if (mass >= 1000000 && mass <= 10000000) {
-    document.querySelector("#b4").style.visibility = "visible";
+    document.querySelector("#b4").classList.remove("hidden");
   } else if (mass >= 10000000 && mass <= 100000000) {
-    document.querySelector("#b5").style.visibility = "visible";
+    document.querySelector("#b5").classList.remove("hidden");
   } else if (mass >= 100000000 && mass <= 1000000000) {
-    document.querySelector("#b6").style.visibility = "visible";
+    document.querySelector("#b6").classList.remove("hidden");
   } else if (mass >= 1000000000 && mass <= 10000000000) {
-    document.querySelector("#b7").style.visibility = "visible";
+    document.querySelector("#b7").classList.remove("hidden");
   } else if (mass >= 10000000000 && mass <= 100000000000) {
-    document.querySelector("#b8").style.visibility = "visible";
+    document.querySelector("#b8").classList.remove("hidden");
   } else if (mass >= 100000000000 && mass <= 1000000000000) {
-    document.querySelector("#b9").style.visibility = "visible";
+    document.querySelector("#b9").classList.remove("hidden");
   } else if (mass >= 1000000000000 && mass <= 10000000000000) {
-    document.querySelector("#b10").style.visibility = "visible";
+    document.querySelector("#b10").classList.remove("hidden");
   } else if (mass >= 10000000000000 && mass <= 100000000000000) {
-    document.querySelector("#b11").style.visibility = "visible";
+    document.querySelector("#b11").classList.remove("hidden");
   } else if (mass >= 100000000000000 && mass <= 1000000000000000) {
-    document.querySelector("#b12").style.visibility = "visible";
+    document.querySelector("#b12").classList.remove("hidden");
   }
 }
