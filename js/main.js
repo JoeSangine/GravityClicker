@@ -1,6 +1,6 @@
 
 //global variables
-=======
+
 let mass = 0;
 let blackHoleBorder = 0.1;
 let buttonAmount = 0;
