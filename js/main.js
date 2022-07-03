@@ -1,6 +1,5 @@
-
 //global variables
-=======
+
 let mass = 0;
 let blackHoleBorder = 0.1;
 let buttonAmount = 0;
@@ -11,14 +10,13 @@ document.querySelector("#gainMass").addEventListener("click", gainMass);
 document.querySelector("#asteroid").addEventListener("click", roidClick);
 document.querySelector("#b1").addEventListener("click", gainB1);
 
-
 function gainMass() {
   // This function controls all effects triggered by pushing the gain mass button.
   mass += 1;
   document.querySelector(".gravity").innerHTML = mass;
   blackHoleBorderIncrease(1);
   randomObject();
-  buttonAppear();  // *** Fix *** Button appear now gets called on gainMass
+  buttonAppear(); // *** Fix *** Button appear now gets called on gainMass
 }
 
 function gainB1() {
@@ -29,7 +27,7 @@ function gainB1() {
   document.querySelector("#b1").innerHTML = buttonAmount;
   blackHoleBorderIncrease(1);
   randomObject();
-  buttonAppear();   // *** Fix *** Button appear now gets called on gainB1
+  buttonAppear(); // *** Fix *** Button appear now gets called on gainB1
 }
 
 function blackHoleBorderIncrease(num) {
@@ -99,7 +97,6 @@ function toggleHidden(element) {
   document.querySelector(`${element}`).classList.toggle("hidden");
 }
 
-
 function buttonAppear() {
   if (mass >= 10 && mass <= 1000) {
     document.querySelector("#b1").classList.remove("hidden");
@@ -129,4 +126,3 @@ function buttonAppear() {
     document.querySelector("#b12").classList.remove("hidden");
   }
 }
-
