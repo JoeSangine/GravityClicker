@@ -42,7 +42,7 @@ main {
   margin-top: 25rem;
   margin-left: 5rem;
 }
-#gravity {
+.gravity {
   text-align: center;
   border-radius: 10rem;
   background: black;
@@ -58,18 +58,49 @@ main {
 footer {
 }
 
+#blackHole {
+  position: fixed;
+  margin-top: 0vh;
+  margin-left: 0vw;
+}
+
 #asteroid {
   position: fixed;
 }
+#bList {
+  display: flex;
+}
+#buttonUi {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 
+#bList > li {
+  flex-basis: 10%;
+}
+
+.button {
+  width: 50%;
+  height: 100%;
+}
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
 
 /* Style to animate the slow rotation of an image*/
 
-.rotate {
+.rotateSlow {
   animation: rotation 8s infinite linear;
+}
+
+.rotateMid {
+  animation: rotation 4s infinite linear;
+}
+
+.rotateFast {
+  animation: rotation 2s infinite linear;
 }
 
 @keyframes rotation {
