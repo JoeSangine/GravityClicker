@@ -22,7 +22,7 @@
 /*******************************************/
 
 body {
-  background-image: url(/images/starfield.avif);
+  background-image: url(images/starfield.avif);
   /* image does not display on my pc */
   object-fit: cover;
   font-family: "Orbitron", sans-serif;

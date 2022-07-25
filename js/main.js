@@ -3,12 +3,20 @@
 let mass = 0;
 let blackHoleBorder = 0.1;
 let buttonAmount = 0;
-
+const bignumber = 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
 //event listners
 document.querySelector("#blackHole").addEventListener("click", gainMass);
 document.querySelector("#gainMass").addEventListener("click", gainMass);
 document.querySelector("#asteroid").addEventListener("click", roidClick);
 document.querySelector("#b1").addEventListener("click", gainB1);
+document.querySelector("#b1").addEventListener("click", passiveGainB1);
+
+
+
+
+
+//functions
+
 
 function gainMass() {
   // This function controls all effects triggered by pushing the gain mass button.
@@ -22,7 +30,6 @@ function gainMass() {
 function gainB1() {
   // This function controls all effects triggered by pushing the B1 button.
   buttonAmount += 1;
-  mass += buttonAmount;
   document.querySelector(".gravity").innerHTML = mass;
   document.querySelector("#b1").innerHTML = buttonAmount;
   blackHoleBorderIncrease(1);
@@ -125,4 +132,17 @@ function buttonAppear() {
   } else if (mass >= 100000000000000 && mass <= 1000000000000000) {
     document.querySelector("#b12").classList.remove("hidden");
   }
+}
+
+// need to set #b1 to gain mass by increment of one per second.
+//  
+function passiveGainB1(){
+ moon = (mass + 1) * buttonAmount;
+ 
+ 
+  while (buttonAmount >= 1){
+    moon++;
+  }
+  document.querySelector(".gravity").innerHTML = moon;
+ 
 }
