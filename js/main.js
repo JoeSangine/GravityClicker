@@ -137,7 +137,12 @@ function buttonAppear() {
 // need to set #b1 to gain mass by increment of one per second.
 //  
 function passiveGainB1(){
-  for ( mass = bignumber; buttonAmount >=bignumber; mass+ buttonAmount) {
-     // I believe it is working... too well however. It does not increment by the second but instead all at once until big number is hit.
- }
+ moon = (mass + 1) * buttonAmount;
+ 
+ 
+  while (buttonAmount >= 1){
+    moon++;
+  }
+  document.querySelector(".gravity").innerHTML = moon;
+ 
 }
