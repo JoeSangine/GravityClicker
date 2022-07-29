@@ -1,135 +1,161 @@
 //event listners
-document.querySelector("#blackHole").addEventListener("click", this.GainMass);
-document.querySelector("#gainMass").addEventListener("click", this.GainMass);
-document.querySelector("#asteroid").addEventListener("click", roidClick);
-document.querySelector("#b1").addEventListener("click", gainB1);
-document.querySelector("#b1").addEventListener("click", passiveGainB1);
-if(!localStorage.getItem('massAmount')){
-  localStorage.setItem('massAmount' , 0)
+
+// I moved down the event listeners. It's better to keep functions on top and listeners on the bottom due to how JS runs
+
+// I turned these off because there are no functions with those names.
+// document.querySelector('#b1').addEventListener('click', gainB1);
+// document.querySelector('#b1').addEventListener('click', passiveGainB1);
+
+if (!localStorage.getItem('massAmount')) {
+  localStorage.setItem('massAmount', 0);
 }
 
-///QOL variables 
-let display = document.querySelector(".gravity").innerHTML
-
+///QOL variables
+let display = document.querySelector('.gravity').innerHTML;
+let randomObject = null;
 
 // Blackhole Object
-
-let blackhole = {}
 //properties of blackhole
-blackhole.mass = 0;
-blackhole.border = 0.1;
 
-//methods for blackhole
+// Converted to class
 
-function GainMass() {
-   display = Number(localStorage.getItem('massAmount'));
-   blackhole.mass += 1;
-    localStorage.setItem('massAmount', blackhole.mass);
-    blackHoleBorderIncrease(1);
-    randomObject();
-    buttonAppear();
+class BlackHole {
+  constructor(mass, border) {
+    this.mass = mass;
+    this.border = border;
   }
-  
+
+  //methods for blackhole
+
+  // I changed a bit the variables names and methods to work better with the class
+
+  gainMass() {
+    blackHole.mass++;
+    localStorage.setItem('massAmount', blackHole.mass);
+    display = localStorage.getItem('massAmount'); // this does nothing and I don't know why. Must be something with the variable display.
+    blackHole.borderIncrease(1);
+
+    // I copied this line from the asteroid click to make the number appear. Can be optimized
+    document.querySelector('.gravity').innerHTML = blackHole.mass;
+
+    // randomObject();
+
+    // I declared the randomObject variable outside so that I can call it from other classes
+    randomObject = new MakeRandomObjects();
+    // here I call the function to generate a random object (my suggestion would be renaming it to "init")
+    randomObject.randomObject();
+
+    // turned this off because I can't find this function or maybe I removed it?
+    // buttonAppear();
+  }
+
   // This function increases the black hole border by num /10
-  function blackHoleBorderIncrease(num) {
-    blackHoleBorder += num / 10;
+  borderIncrease(num) {
+    this.border += num / 10;
     document.querySelector(
-      ".gravity"
-    ).style.border = `${blackHoleBorder}rem solid black`;
+      '.gravity'
+    ).style.border = `${this.border}rem solid black`;
   }
+}
 
 //button constructor
-function MakeButton (unlockValue,gainRate){
-  //properties of all future buttons
-this.unlockValue = unlockValue
-this.gainRate = gainRate
-
-
-  //methods buttons activate
-  
-  // Function to hide or unhide ANY element passed into it as an argument.
-  
-  function toggleHidden(element) {
-     document.querySelector(`${element}`).classList.toggle("hidden");
+class MakeButton {
+  constructor(unlockValue, gainRate) {
+    //properties of all future buttons
+    this.unlockValue = unlockValue;
+    this.gainRate = gainRate;
   }
+}
 
-
+//methods buttons activate
+// Function to hide or unhide ANY element passed into it as an argument.
+// I put this outside so that it can work with all the objects. There are different ways to optimize this.
+function toggleHidden(element) {
+  document.querySelector(`${element}`).classList.toggle('hidden');
 }
 //buttons numbers subject to change
-let button1 = new MakeButton(10,1)
-let button2 = new MakeButton(100,10)
-let button3 = new MakeButton(1000,100)
-let button4 = new MakeButton(10000,1000)
-let button5 = new MakeButton(100000,10000)
-let button6 = new MakeButton(1000000,100000)
-let button7 = new MakeButton(10000000,100000)
-let button8 = new MakeButton(100000000,1000000)
-let button9 = new MakeButton(1000000000,10000000)
-let button10 = new MakeButton(10000000000,10000000)
-
+let button1 = new MakeButton(10, 1);
+let button2 = new MakeButton(100, 10);
+let button3 = new MakeButton(1000, 100);
+let button4 = new MakeButton(10000, 1000);
+let button5 = new MakeButton(100000, 10000);
+let button6 = new MakeButton(1000000, 100000);
+let button7 = new MakeButton(10000000, 100000);
+let button8 = new MakeButton(100000000, 1000000);
+let button9 = new MakeButton(1000000000, 10000000);
+let button10 = new MakeButton(10000000000, 10000000);
 
 //Asteroid Object and possible future objects
-function MakeRandomObjects() {
-
+//Converted this as well
+class MakeRandomObjects {
+  constructor() {
+    this.asteroid = document
+      .querySelector('#asteroid')
+      .addEventListener('click', this.roidClick);
+    this.roidHeight = 0;
+    this.roidGain = 0;
+  }
   //properties of Random Objects
 
-
-
   //methods of Random Objects
-
   // Function to give a random chance on click for an object to appear on the viewport
-  function randomObject() {
-      // randomise a number between 1 and 1000
+  randomObject() {
+    // randomise a number between 1 and 1000
     let randomChance = Math.floor(Math.random() * 1000);
     if (randomChance >= 1 && randomChance <= 50) {
       // 5% chance or 1 in 20 clicks to spawn a new asteroid.
-     
-      spawnAsteroid();
+
+      this.spawnAsteroid();
     }
   }
   // Spawn a randomly sized asteroid at a random place on the viewport.
-  
-  function spawnAsteroid() {
+
+  spawnAsteroid() {
     // Randomise the x/y position for the asteroid
-    
+
     let xRand =
       Math.ceil(Math.random() * 50) * (Math.round(Math.random()) ? 1 : -1);
     let yRand =
       Math.ceil(Math.random() * 50) * (Math.round(Math.random()) ? 1 : -1);
     // Randomise the size of the asteroid between 50 and 100 pixels.
-   
+
     let sizeRand = Math.ceil(Math.random() * 50) + 50;
     // Update the asteroid's position.
-   
+
     document.querySelector(
-      "#asteroid"
+      '#asteroid'
     ).style = `height: ${sizeRand}px; margin-top: ${yRand}vh; margin-left: ${xRand}vw`;
     // remove the "hidden" class from the asteroid, or add it back on if you're not paying attention!
-   
-    toggleHidden("#asteroid");
+
+    toggleHidden('#asteroid');
   }
 
-// Function to control the behaviour of the object and blackhole when the asteroid is clicked on.
-  function roidClick() {
+  // Function to control the behaviour of the object and blackhole when the asteroid is clicked on.
+  roidClick() {
     // first define the current size of the asteroid as a string
-    roidHeight = document.querySelector("#asteroid").style.height;
+    this.roidHeight = document.querySelector('#asteroid').style.height;
     // Then trim the "px" from the end to make it a string number
-    roidGain = roidHeight.substring(0, roidHeight.length - 2);
+    this.roidGain = this.roidHeight.substring(0, this.roidHeight.length - 2);
     // convert the string to a number then add it to mass.
-    mass += Number(roidGain);
+    blackHole.mass += Number(this.roidGain);
     //  update black hole size
-    document.querySelector(".gravity").innerHTML = mass;
-    blackHoleBorder += 0.1;
+    document.querySelector('.gravity').innerHTML = blackHole.mass;
+    blackHole.mass += 1; // was 0.1, now 1 to be consistent
     document.querySelector(
-      ".gravity"
-    ).style.border = `${blackHoleBorder}rem solid black`;
+      '.gravity'
+    ).style.border = `${blackHole.border}rem solid black`;
     // call a random roll for objects as a result of the click
-    randomObject();
+    randomObject.randomObject();
     // hide the asteroid again
-    toggleHidden("#asteroid");
+    toggleHidden('#asteroid');
   }
-
-
-
-
 }
+
+let blackHole = new BlackHole(0, 0.1);
+
+document
+  .getElementById('blackHole')
+  .addEventListener('click', blackHole.gainMass);
+document
+  .getElementById('gainMass')
+  .addEventListener('click', blackHole.gainMass);
