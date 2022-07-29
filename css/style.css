@@ -5,7 +5,7 @@
 
 /* Clear fix hack */
 .clearfix:after {
-  content: ".";
+  content: '.';
   display: block;
   clear: both;
   visibility: hidden;
@@ -22,10 +22,12 @@
 /*******************************************/
 
 body {
-  background-image: url(images/starfield.avif);
+  background-image: url(../images/starfield.avif);
   /* image does not display on my pc */
+  /* --Roberto - fixed this, path was incorrect, it was looking for the image in the css folder */
+  
   object-fit: cover;
-  font-family: "Orbitron", sans-serif;
+  font-family: 'Orbitron', sans-serif;
 }
 
 /******************************************
